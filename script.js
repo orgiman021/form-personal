@@ -17,6 +17,11 @@ const personsInfo = {
     phoneNumber : phoneNumber.value.trim(),
     gender : gender.value.trim(),
 }
+if(personsInfo.name || personsInfo.email){
+    alert("Entering name and email is required ")
+}
 
+users.push(personsInfo)
+form.reset();
 
 });
