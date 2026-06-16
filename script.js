@@ -51,7 +51,7 @@ showModal.addEventListener("click", () => {
     });
     modal.appendChild(list);
   }
-style();
+  style();
 });
 
 // close modal box
@@ -92,28 +92,27 @@ foundPerson.addEventListener("click", () => {
 //Is everyone employed
 allHaveJob.addEventListener("click", () => {
   if (users.length === 0) {
-      modal.innerHTML = `<h3>Registration not yet completed</h3>`;
-      return;
+    modal.innerHTML = `<h3>Registration not yet completed</h3>`;
+    return;
   }
- const hasJob = users.every((p) => p.job.trim() !== "");
- modal.innerHTML = hasJob
- ? "everybody has job✅"
- : "somebody does'nt have job❌";
+  const hasJob = users.every((p) => p.job.trim() !== "");
+  modal.innerHTML = hasJob
+    ? "everybody has job✅"
+    : "somebody does'nt have job❌";
 
-style();
-}
-);
+  style();
+});
 // Is there at least one man?
 mans.addEventListener("click", () => {
   const mans = users.some((p) => p.gender === "man");
   modalInput.innerHTML = mans
     ? "<p>Everyone is man✅</p>"
     : "<p>Everyone is not man❌</p>";
-style()
+  style();
 });
-function style(){
-     overlay.style.opacity = "1";
- overlay.style.visibility = "visible";
- modal.style.opacity = "1";
- modal.style.visibility = "visible";
+function style() {
+  overlay.style.opacity = "1";
+  overlay.style.visibility = "visible";
+  modal.style.opacity = "1";
+  modal.style.visibility = "visible";
 }
