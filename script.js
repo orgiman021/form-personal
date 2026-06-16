@@ -37,20 +37,28 @@ showModal.addEventListener("click", () => {
     const list = document.createElement("ul");
 
     users.forEach((persons, index) => {
-        const li = document.createElement("li");
-        const { name, email, job, phoneNumber, gender } = persons;
-        li.innerText = `${index + 1}
+      const li = document.createElement("li");
+      const { name, email, job, phoneNumber, gender } = persons;
+      li.innerText = `${index + 1}
         name : ${persons.name}
         email : ${persons.email}
         job : ${persons.job || "---"}
         phone number : ${persons.phoneNumber || "---"}
         gender : ${persons.gender || "---"}`;
-        list.appendChild(li);
+      list.appendChild(li);
     });
     modal.appendChild(list);
-}
-    overlay.style.opacity = "1";
-    overlay.style.visibility = "visible";
-    modal.style.opacity = "1";
-    modal.style.visibility = "visible";
+  }
+  overlay.style.opacity = "1";
+  overlay.style.visibility = "visible";
+  modal.style.opacity = "1";
+  modal.style.visibility = "visible";
 });
+
+  // close modal box
+  overlay.addEventListener("click", () => {
+    overlay.style.opacity = "0";
+    overlay.style.visibility = "hidden";
+    modal.style.opacity = "0";
+    modal.style.visibility = "hidden";
+  });
