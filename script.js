@@ -51,10 +51,7 @@ showModal.addEventListener("click", () => {
     });
     modal.appendChild(list);
   }
-  overlay.style.opacity = "1";
-  overlay.style.visibility = "visible";
-  modal.style.opacity = "1";
-  modal.style.visibility = "visible";
+style();
 });
 
 // close modal box
@@ -90,10 +87,7 @@ foundPerson.addEventListener("click", () => {
     modal.innerHTML = `<h2>Unfortunately there is no user❌</h2>`;
   }
 
-  overlay.style.opacity = "1";
-  overlay.style.visibility = "visible";
-  modal.style.opacity = "1";
-  modal.style.visibility = "visible";
+  style();
 });
 //Is everyone employed
 allHaveJob.addEventListener("click", () => {
@@ -106,10 +100,7 @@ allHaveJob.addEventListener("click", () => {
  ? "everybody has job✅"
  : "somebody does'nt have job❌";
 
- overlay.style.opacity = "1";
- overlay.style.visibility = "visible";
- modal.style.opacity = "1";
- modal.style.visibility = "visible";
+style();
 }
 );
 // Is there at least one man?
@@ -118,8 +109,11 @@ mans.addEventListener("click", () => {
   modalInput.innerHTML = mans
     ? "<p>Everyone is man✅</p>"
     : "<p>Everyone is not man❌</p>";
+style()
+});
+function style(){
      overlay.style.opacity = "1";
  overlay.style.visibility = "visible";
  modal.style.opacity = "1";
  modal.style.visibility = "visible";
-});
+}
