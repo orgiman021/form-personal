@@ -112,3 +112,14 @@ allHaveJob.addEventListener("click", () => {
  modal.style.visibility = "visible";
 }
 );
+// Is there at least one man?
+mans.addEventListener("click", () => {
+  const mans = users.some((p) => p.gender === "man");
+  modalInput.innerHTML = mans
+    ? "<p>Everyone is man✅</p>"
+    : "<p>Everyone is not man❌</p>";
+     overlay.style.opacity = "1";
+ overlay.style.visibility = "visible";
+ modal.style.opacity = "1";
+ modal.style.visibility = "visible";
+});
