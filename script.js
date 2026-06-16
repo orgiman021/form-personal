@@ -8,6 +8,7 @@ const gender = document.getElementById("gender");
 const showModal = document.getElementById("showModal");
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
+const foundPerson = document.getElementById("foundPerson");
 
 let users = [];
 // add user
@@ -55,10 +56,42 @@ showModal.addEventListener("click", () => {
   modal.style.visibility = "visible";
 });
 
-  // close modal box
-  overlay.addEventListener("click", () => {
-    overlay.style.opacity = "0";
-    overlay.style.visibility = "hidden";
-    modal.style.opacity = "0";
-    modal.style.visibility = "hidden";
+// close modal box
+overlay.addEventListener("click", () => {
+  overlay.style.opacity = "0";
+  overlay.style.visibility = "hidden";
+  modal.style.opacity = "0";
+  modal.style.visibility = "hidden";
+});
+// found with email
+foundPerson.addEventListener("click", () => {
+
+  const writeEmail = prompt("write email for found : ");
+  const usersfilter = users.filter((p) => {
+    return p.email === writeEmail.trim();
   });
+  if (users.length > 0) {
+    let res = `<h3>congratulation! user found✅</h3>`;
+    
+    usersfilter.forEach((person) => {
+      const { name, email, job, phoneNumber, gender } = person;
+      
+      res += `
+      <p>name : ${name}</p>
+      <p>email : ${email}</p>
+      <p>job : ${job}</p>
+      <p>phoneNumber : ${phoneNumber}</p>
+      <p>gender : ${gender}</p>
+      <hr>
+      `;
+      modal.innerHTML = res;
+    })
+  }else{
+    modal.innerHTML = `<h2>Unfortunately there is no user❌</h2>`;
+      }
+   
+    overlay.style.opacity = "1";
+      overlay.style.visibility = "visible";
+      modal.style.opacity = "1";
+      modal.style.visibility = "visible";
+});
