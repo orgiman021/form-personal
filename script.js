@@ -7,3 +7,16 @@ const phoneNumber = document.getElementById("phoneNumber");
 const gender = document.getElementById("gender");
 
 
+let users = [];
+form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+const personsInfo = {
+    name : `${firstName.value.trim()} ${lastName.value.trim()}`,
+    email : mail.value.trim(),
+    job : job.value.trim(),
+    phoneNumber : phoneNumber.value.trim(),
+    gender : gender.value.trim(),
+}
+
+
+});
