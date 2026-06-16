@@ -42,9 +42,9 @@ showModal.addEventListener("click", () => {
         li.innerText = `${index + 1}
         name : ${persons.name}
         email : ${persons.email}
-        job : ${persons.job}
-        phone number : ${persons.phoneNumber}
-        gender : ${persons.gender}`;
+        job : ${persons.job || "---"}
+        phone number : ${persons.phoneNumber || "---"}
+        gender : ${persons.gender || "---"}`;
         list.appendChild(li);
     });
     modal.appendChild(list);
