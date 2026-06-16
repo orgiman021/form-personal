@@ -9,6 +9,7 @@ const showModal = document.getElementById("showModal");
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
 const foundPerson = document.getElementById("foundPerson");
+const allHaveJob = document.getElementById("allHaveJob");
 
 let users = [];
 // add user
@@ -65,17 +66,16 @@ overlay.addEventListener("click", () => {
 });
 // found with email
 foundPerson.addEventListener("click", () => {
-
   const writeEmail = prompt("write email for found : ");
   const usersfilter = users.filter((p) => {
     return p.email === writeEmail.trim();
   });
   if (users.length > 0) {
     let res = `<h3>congratulation! user found✅</h3>`;
-    
+
     usersfilter.forEach((person) => {
       const { name, email, job, phoneNumber, gender } = person;
-      
+
       res += `
       <p>name : ${name}</p>
       <p>email : ${email}</p>
@@ -85,13 +85,30 @@ foundPerson.addEventListener("click", () => {
       <hr>
       `;
       modal.innerHTML = res;
-    })
-  }else{
+    });
+  } else {
     modal.innerHTML = `<h2>Unfortunately there is no user❌</h2>`;
-      }
-   
-    overlay.style.opacity = "1";
-      overlay.style.visibility = "visible";
-      modal.style.opacity = "1";
-      modal.style.visibility = "visible";
+  }
+
+  overlay.style.opacity = "1";
+  overlay.style.visibility = "visible";
+  modal.style.opacity = "1";
+  modal.style.visibility = "visible";
 });
+//Is everyone employed
+allHaveJob.addEventListener("click", () => {
+  if (users.length === 0) {
+      modal.innerHTML = `<h3>Registration not yet completed</h3>`;
+      return;
+  }
+ const hasJob = users.every((p) => p.job.trim() !== "");
+ modal.innerHTML = hasJob
+ ? "everybody has job✅"
+ : "somebody does'nt have job❌";
+
+ overlay.style.opacity = "1";
+ overlay.style.visibility = "visible";
+ modal.style.opacity = "1";
+ modal.style.visibility = "visible";
+}
+);
