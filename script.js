@@ -67,7 +67,7 @@ foundPerson.addEventListener("click", () => {
   const usersfilter = users.filter((p) => {
     return p.email === writeEmail.trim();
   });
-  if (users.length > 0) {
+  if (usersfilter.length > 0) {
     let res = `<h3>congratulation! user found✅</h3>`;
 
     usersfilter.forEach((person) => {
