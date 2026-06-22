@@ -106,8 +106,8 @@ allHaveJob.addEventListener("click", () => {
 mans.addEventListener("click", () => {
   const mans = users.some((p) => p.gender === "man");
   modalInput.innerHTML = mans
-    ? "<p>Everyone is man✅</p>"
-    : "<p>Everyone is not man❌</p>";
+    ? "<p>At least one person is male✅</p>"
+    : "<p>Not even one person is a man❌</p>";
   style();
 });
 function style() {
